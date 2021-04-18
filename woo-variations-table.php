@@ -308,7 +308,7 @@ function woo_variations_table_print_table()
         $variation_attributes = $product->get_variation_attributes();
         $attrs = array();
         foreach ($variation_attributes as $key => $name) {
-            $correctkey = wc_sanitize_taxonomy_name(stripslashes($key));
+            $correctkey = strtolower(urlencode(wc_sanitize_taxonomy_name(stripslashes($key))));
             $options = array();
             for ($i = 0; count($name) > $i; $i++) {
                 $terms = array_values($name);
